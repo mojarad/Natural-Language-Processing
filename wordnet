@@ -1,0 +1,227 @@
+## Synsets Lemmas Hyponyms and Hypernyms POS Word-Similarity
+# # download wordnet
+
+# In[ ]:
+
+
+import nltk
+#nltk.download("wordnet")
+
+
+# ## Synset
+
+# In[ ]:
+
+
+from nltk.corpus import wordnet
+book_word=wordnet.synsets("book")
+book_word
+
+
+# In[ ]:
+
+
+type(book_word)
+
+
+# # definition
+
+# In[ ]:
+
+
+from nltk.corpus import wordnet
+book_word=wordnet.synsets("book")
+book_word
+
+
+# In[ ]:
+
+
+book_word[1].definition()
+
+
+# # examples
+
+# In[ ]:
+
+
+from nltk.corpus import wordnet
+book_word=wordnet.synsets("book")
+book_word
+
+
+# In[ ]:
+
+
+book_word[1].examples()
+
+
+# # Lemma
+
+# In[ ]:
+
+
+from nltk.corpus import wordnet
+book_word=wordnet.synsets("book")
+book_word
+
+
+# In[ ]:
+
+
+book_word[1].lemmas()
+
+
+# # Hyponyms and Hypernyms
+
+# In[ ]:
+
+
+book_word=wordnet.synsets("book")
+book_word[0].hypernyms()
+
+
+# In[ ]:
+
+
+book_word
+
+
+# In[ ]:
+
+
+book_word[0]
+
+
+# In[ ]:
+
+
+book_word[0].hyponyms()
+
+
+# In[ ]:
+
+
+book_word=wordnet.synsets("book")
+book_word
+
+
+# In[ ]:
+
+
+book_word[0].root_hypernyms()
+
+
+# In[ ]:
+
+
+book_word[0].hypernym_paths()
+
+
+# # Part of Speech
+
+# In[ ]:
+
+
+wordnet.synsets("book")
+
+
+# In[ ]:
+
+
+wordnet.synsets("book",pos='n')
+
+
+# In[ ]:
+
+
+wordnet.synsets("book",pos='v')
+
+
+# In[ ]:
+
+
+wordnet.synsets("book")
+
+
+# In[ ]:
+
+
+wordnet.synsets("book")[1]
+
+
+# In[ ]:
+
+
+wordnet.synsets("book").pos()
+
+
+# In[ ]:
+
+
+wordnet.synsets("book")[1].pos()
+
+
+# # Word Similarity 
+
+# In[ ]:
+
+
+from nltk.corpus import wordnet
+wordnet.synsets("book")
+
+
+# In[ ]:
+
+
+from nltk.corpus import wordnet
+book_word=wordnet.synsets("book")[0]
+book_word
+
+
+# In[ ]:
+
+
+book_word.hypernyms()
+
+
+# In[ ]:
+
+
+book_word.hypernyms()[0].hyponyms()
+
+
+# # OR
+
+# In[ ]:
+
+
+book_word=wordnet.synsets("book")
+book_word[0].hypernyms()
+book_word[0].hypernyms()[0].hyponyms()
+
+
+# # Shortest path distance
+
+# In[ ]:
+
+
+book_word=wordnet.synsets("book")[0]
+mag_word=wordnet.synsets("magazine")[0]
+min_path=1+ book_word.shortest_path_distance(mag_word)
+print(min_path)
+
+
+# In[ ]:
+
+
+book_words=wordnet.synsets("book")
+book_words
+
+
+# In[ ]:
+
+
+mag_words=wordnet.synsets("magazine")
+mag_words
+
