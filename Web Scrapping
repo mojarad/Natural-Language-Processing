@@ -1,0 +1,110 @@
+
+# In[ ]:
+
+
+get_ipython().system('pip install lxml')
+get_ipython().system('pip install beautifulsoup4')
+
+
+# In[ ]:
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+get_ipython().run_line_magic('matplotlib', 'inline')
+
+#Beautiful Soup package is used to extract data from html files
+from urllib.request import urlopen
+import urllib.request
+from bs4 import BeautifulSoup
+
+
+# In[ ]:
+
+
+# Gettings the data source
+source = urllib.request.urlopen('https://en.wikipedia.org/wiki/Natural_language_processing').read()
+
+
+# In[ ]:
+
+
+# Parsing the data/ creating BeautifulSoup object
+soup = BeautifulSoup(source,'lxml')
+
+
+# In[ ]:
+
+
+source
+
+
+# In[ ]:
+
+
+#more efficient than source
+soup
+
+
+# In[ ]:
+
+
+type(soup)
+
+
+# In[ ]:
+
+
+# Get the title
+title = soup.title
+print(title)
+
+
+# In[ ]:
+
+
+# Print out the text
+text = soup.get_text()
+print(soup.text)
+
+
+# In[ ]:
+
+
+# Fetching the data
+text = ""
+for paragraph in soup.find_all('p'):
+    text += paragraph.text
+print(text)
+
+
+# In[ ]:
+
+
+#Use the find_all() method of soup to extract useful html tags within a webpage
+soup.find_all('a')
+
+
+# In[ ]:
+
+
+#Use the find_all() method of soup to extract useful html tags within a webpage
+soup.find_all('img')
+
+
+# In[ ]:
+
+
+soup.find_all('p')
+
+
+# In[ ]:
+
+
+#Use a for loop and the get('"href") method to extract and print out only hyperlinks
+all_links = soup.find_all("a")
+for link in all_links:
+    print(link.get("href"))
+
