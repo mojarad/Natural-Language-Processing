@@ -1,0 +1,71 @@
+
+# In[ ]:
+
+
+from hazm import *
+
+
+# In[ ]:
+
+
+sent_tokenize("سلام! به ورکشاپ پردازش زبان طبیعی خوش آمدید. از اعتماد شما متشکریم")
+
+
+# In[ ]:
+
+
+word_tokenize("سلام! به ورکشاپ پردازش زبان طبیعی خوش آمدید. از اعتماد شما متشکریم")
+
+
+# In[ ]:
+
+
+stemmer=Stemmer()
+stemmer.stem("کتاب‌ها")
+
+
+# In[ ]:
+
+
+stemmer=Stemmer()
+stemmer.stem("آمدیم")
+
+
+# In[ ]:
+
+
+from nltk.stem import WordNetLemmatizer
+
+
+# In[ ]:
+
+
+lemmatizer = WordNetLemmatizer()
+
+
+# In[ ]:
+
+
+lemmatizer.lemmatize("تگها")
+
+
+# In[ ]:
+
+
+lemmatizer.lemmatize("سلام! به ورکشاپ پردازش زبان طبیعی خوش آمدید. از اعتماد شما متشکریم")
+
+
+# In[ ]:
+
+
+lemmatizer = Lemmatizer()
+lemmatizer.lemmatize('می‌روم')
+
+
+# In[ ]:
+
+
+lemmatizer = Lemmatizer()
+lemmatizer.lemmatize("گفته شده است")
+
+
