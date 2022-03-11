@@ -1,0 +1,181 @@
+# ## Names Wordlist corpus
+
+# In[14]:
+
+
+import nltk
+nltk.download("names")
+
+
+# In[15]:
+
+
+from nltk.corpus import names
+names.fileids()
+
+
+# In[16]:
+
+
+len(names.words("male.txt"))
+
+
+# In[17]:
+
+
+len(names.words("female.txt"))
+
+
+# In[18]:
+
+
+names.words("male.txt")
+
+
+# In[19]:
+
+
+names.words("female.txt")
+
+
+# ## English Words Corpus
+
+# In[20]:
+
+
+nltk.download("words")
+
+
+# In[21]:
+
+
+from nltk.corpus import words
+words.fileids()
+
+
+# In[22]:
+
+
+len(words.words("en"))
+
+
+# In[23]:
+
+
+len(words.words("en-basic"))
+
+
+# # ngram
+
+# In[24]:
+
+
+import nltk
+from nltk import word_tokenize
+from nltk.util import ngrams
+from collections import Counter
+
+
+# In[25]:
+
+
+text = "I need to write a program in NLTK that breaks a corpus (a large collection of \txt files) into unigrams, bigrams, trigrams, fourgrams and fivegrams.\ I need to write a program in NLTK that breaks a corpus"
+print(text)
+
+
+# In[26]:
+
+
+token = nltk.word_tokenize(text)
+print(token)
+
+
+# In[27]:
+
+
+bigrams = ngrams(token,2)
+print(list(bigrams))
+
+
+# In[28]:
+
+
+trigrams = ngrams(token,3)
+print(list(trigrams))
+
+
+# In[29]:
+
+
+fourgrams = ngrams(token,4)
+print(list(fourgrams))
+
+
+# In[30]:
+
+
+fivegrams = ngrams(token,5)
+print(list(fivegrams))
+
+
+# ## counter ngram
+
+# In[31]:
+
+
+import nltk
+from nltk import word_tokenize
+from nltk.util import ngrams
+from collections import Counter
+
+text = "I need to write a program in NLTK that breaks a corpus (a large collection of \txt files) into unigrams, bigrams, trigrams, fourgrams and fivegrams.\I need to write a program in NLTK that breaks a corpus"
+token = nltk.word_tokenize(text)
+bigrams = ngrams(token,2)
+
+print(Counter(bigrams))
+
+
+# In[32]:
+
+
+import nltk
+from nltk import word_tokenize
+from nltk.util import ngrams
+from collections import Counter
+
+text = "I need to write a program in NLTK that breaks a corpus (a large collection of \txt files) into unigrams, bigrams, trigrams, fourgrams and fivegrams.\I need to write a program in NLTK that breaks a corpus"
+token = nltk.word_tokenize(text)
+trigrams = ngrams(token,3)
+
+print(Counter(trigrams))
+
+
+# In[33]:
+
+
+import nltk
+from nltk import word_tokenize
+from nltk.util import ngrams
+from collections import Counter
+
+text = "I need to write a program in NLTK that breaks a corpus (a large collection of \txt files) into unigrams, bigrams, trigrams, fourgrams and fivegrams.\I need to write a program in NLTK that breaks a corpus"
+token = nltk.word_tokenize(text)
+fourgrams = ngrams(token,4)
+
+print(Counter(fourgrams))
+
+
+# In[34]:
+
+
+import nltk
+from nltk import word_tokenize
+from nltk.util import ngrams
+from collections import Counter
+
+text = "I need to write a program in NLTK that breaks a corpus (a large collection of \txt files) into unigrams, bigrams, trigrams, fourgrams and fivegrams.\I need to write a program in NLTK that breaks a corpus"
+token = nltk.word_tokenize(text)
+fivegrams = ngrams(token,5)
+
+print(Counter(fivegrams))
+
