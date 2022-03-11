@@ -1,0 +1,98 @@
+
+# # Textblob
+
+# In[2]:
+
+
+get_ipython().system('pip install textblob')
+#pip install -U textblob
+#conda install -c conda-forge textblob
+
+
+# In[3]:
+
+
+from textblob import TextBlob
+
+
+# In[4]:
+
+
+text= open("openfile.txt")
+text=text.read()
+
+
+# In[5]:
+
+
+blob=TextBlob(text)
+
+
+# In[6]:
+
+
+words=blob.words
+print(words)
+
+
+# In[7]:
+
+
+tags=blob.tags
+print(tags)
+
+
+# In[8]:
+
+
+sentences=blob.sentences
+print(sentences)
+
+
+# In[9]:
+
+
+noun_phrase=blob.noun_phrases
+print(noun_phrase)
+
+
+# In[10]:
+
+
+np_count=blob.np_counts
+print(np_count)
+
+
+# In[11]:
+
+
+polarity=blob.polarity
+print(polarity)
+
+
+# In[12]:
+
+
+subjectivity=blob.subjectivity
+print(subjectivity)
+
+
+# In[13]:
+
+
+sentiment=blob.sentiment
+print(sentiment)
+
+
+# In[19]:
+
+
+# traslate=blob.translate(to="sp")
+# print(traslate)
+
+
+# In[20]:
+
+
+ngram=blob.ngrams(n=1)
+print(ngram)
