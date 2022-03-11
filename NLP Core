@@ -1,0 +1,184 @@
+# # Natural Language Processing using NLTK
+
+# # Install NLTK
+
+# In[5]:
+
+
+pip install nltk
+
+
+# # Download nltk
+
+# In[6]:
+
+
+import nltk
+nltk.download()
+
+
+# # import library
+
+# In[7]:
+
+
+import nltk
+
+
+# ## Open text
+
+# In[12]:
+
+
+file = open("..//openfile.txt",encoding="utf-8")
+text=file.read()
+print(text)
+
+
+# In[15]:
+
+
+with open('..//openfile.txt','r') as f:
+    text=f.read()
+    print(text)
+
+
+# # Sentence Tokenize
+
+# In[16]:
+
+
+paragraph = """Natural language processing is a subfield of linguistics, computer science, and artificial intelligence.
+                NLP concerned with the interactions between computers and human languages.
+                In particular how to program computers to process and analyze large amounts of natural language data."""
+               
+# Tokenizing words
+from nltk.tokenize import sent_tokenize
+words = nltk.sent_tokenize(paragraph)
+print(words)
+
+
+# # Word Tokenize
+
+# In[17]:
+
+
+paragraph = """Natural language processing is a subfield of linguistics, computer science, and artificial intelligence.
+                NLP concerned with the interactions between computers and human languages.
+                In particular how to program computers to process and analyze large amounts of natural language data."""
+               
+# Tokenizing words
+from nltk.tokenize import word_tokenize
+words = nltk.word_tokenize(paragraph)
+print(words)
+
+
+# # PorterStemmer
+
+# In[18]:
+
+
+import nltk
+from nltk.stem import PorterStemmer
+
+
+# In[19]:
+
+
+sentences = nltk.sent_tokenize(paragraph)
+stemmer = PorterStemmer()
+
+# Stemming
+for i in range(len(sentences)):
+    words = nltk.word_tokenize(sentences[i])
+    words = [stemmer.stem(word) for word in words]
+    sentences[i] = ' '.join(words)      
+    print(sentences[i])
+
+
+# # Lemmatization
+
+# In[20]:
+
+
+import nltk
+from nltk.stem import WordNetLemmatizer
+
+
+# In[21]:
+
+
+sentences = nltk.sent_tokenize(paragraph)
+lemmatizer = WordNetLemmatizer()
+
+# Lemmatization
+for i in range(len(sentences)):
+    words = nltk.word_tokenize(sentences[i])
+    words = [lemmatizer.lemmatize(word) for word in words]
+    sentences[i] = ' '.join(words)  
+    print(sentences[i])
+
+
+# # Remove Stopword
+
+# In[22]:
+
+
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+
+
+# In[23]:
+
+
+sentences = nltk.sent_tokenize(paragraph)
+
+# Removing stopwords
+for i in range(len(sentences)):
+    words = nltk.word_tokenize(sentences[i])
+    words = [word for word in words if word not in stopwords.words('english')]
+    sentences[i] = ' '.join(words)     
+    print(sentences[i])
+
+
+# In[24]:
+
+
+print(stopwords.words('english'))
+
+
+# # POS Tagging
+
+# In[25]:
+
+
+# Part Of Speech Tagging
+words = nltk.word_tokenize(paragraph)
+
+tagged_words = nltk.pos_tag(words)
+print(tagged_words)
+
+
+# # Named Entity Recognition
+
+# In[26]:
+
+
+# POS Tagging
+paragraph="i go home"
+words = nltk.word_tokenize(paragraph)
+
+tagged_words = nltk.pos_tag(words)
+print(tagged_words)
+
+
+# In[27]:
+
+
+# Named entity recognition
+namedEnt = nltk.ne_chunk(tagged_words)
+namedEnt.draw()
+
+
+
