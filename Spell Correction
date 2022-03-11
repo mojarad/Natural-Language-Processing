@@ -1,0 +1,42 @@
+
+# ## PySpellChecker
+
+# In[2]:
+
+
+get_ipython().system('pip install pyspellchecker ')
+from spellchecker import SpellChecker
+spell=SpellChecker()
+
+
+# In[3]:
+
+
+spell.correction("corect")
+
+
+# In[4]:
+
+
+spell.candidates("hapy")
+
+
+# # SpellChecker
+
+# In[5]:
+
+
+from spellchecker import SpellChecker
+
+spell = SpellChecker()
+
+# find those words that may be misspelled
+misspelled = spell.unknown(['something', 'is', 'hapenning', 'here'])
+
+for word in misspelled:
+    # Get the one `most likely` answer
+    print(spell.correction(word))
+
+    # Get a list of `likely` options
+    print(spell.candidates(word))
+
